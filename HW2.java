@@ -73,13 +73,14 @@ class Deck{
 	
     public Deck(int nDeck){
         cards = new ArrayList<Card>();
-        for (int a=0; a<=3; a++)
-        {
-            for (int b=0; b<=12; b++)
-             {
-               cards.add( new Card(a,b) );
-             }
-        }
+       for(int n=0;n<nDeck;n++){
+            for (int a=1; a<=4; a++)
+            {
+                  for (int b=1; b<=13; b++){
+                      cards.add( new Card(a,b) );
+                  }
+            }
+       }
         nnum=nDeck;
     }  
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
@@ -94,10 +95,12 @@ class Deck{
 	public void printDeck(){
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
+		//for each cards 
+		//cards.get(0).printCard();
 		while(true){
-			for (int a=0; a<=3; a++)
+			for (int a=1; a<=4; a++)
 			{
-				for (int b=0; b<=12; b++){
+				for (int b=1; b<=13; b++){
 	        		System.out.println(new Card(a,b));
 				}
 	    	}
@@ -131,7 +134,7 @@ class Card{
 	}	
 	public String toString()
     {
-        String finalCard = cardSuit[suit] + "," + cardRank[rank];
+        String finalCard = cardSuit[suit-1] + "," + cardRank[rank-1];
 
         return finalCard;
     }
@@ -139,14 +142,8 @@ class Card{
 	
 	public void printCard(){
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
-		for (int a=0; a<=3; a++)
-		{
-			for (int b=0; b<=12; b++){
-        		System.out.println(new Card(a,b));
-			}
-    	}
+        		System.out.println(suit+","+rank);
 	}
-	
 	public int getSuit(){	
 		return suit;
 	}
